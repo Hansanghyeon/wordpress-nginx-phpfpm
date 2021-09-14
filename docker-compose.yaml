@@ -7,7 +7,7 @@ services:
     ports:
       - 8080:80
     volumes:
-      - ./nginc.conf:/etc/nginx/conf.d/nginx.conf
+      - ./docker/nginx/conf:/etc/nginx/conf.d
       - wordpress:/var/www/html
     links:
       - wordpress
@@ -24,8 +24,6 @@ services:
   db:
     image: mariadb
     restart: always
-    ports:
-      - 3306
     environment:
       MYSQL_DATABASE: wp
       MYSQL_USER: wp
